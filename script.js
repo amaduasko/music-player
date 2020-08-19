@@ -109,11 +109,17 @@ const updateProgressBar = (event) => {
         //calculate current time
         const currentMinutes = Math.floor(currentTime / 60)
         let currentSeconds = Math.floor(currentTime % 60)
+        const actualDurationMinutes = Math.floor((duration - currentTime) / 60)
+        let actualDurationSeconds = Math.floor((duration - currentTime) % 60)
         if (currentSeconds < 10) {
             currentSeconds = `0${currentSeconds}`
         }
+        if (actualDurationSeconds < 10) {
+            actualDurationSeconds = `0${actualDurationSeconds}`
+        }
         if (currentSeconds) {
             currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`
+            durationEl.textContent = `${actualDurationMinutes}:${actualDurationSeconds}`
         }
     }
 }
